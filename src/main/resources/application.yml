@@ -4,8 +4,42 @@ management.endpoints.web.exposure.include: "*"
 logging:
   level:
     root: info
-    org.springframework.cloud.gateway.route.
-      RouteDefinitionRouteLocator: INFO
-    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator:  INFO      
+    org.springframework.cloud.gateway:  TRACE
+
+#id: product-composite: The name of the route is product-composite.
+#uri: lb://product-composite: If the route is selected by its predicates, the request will be routed to the service that is named product-composite in the discovery service, Netflix Eureka. The protocol lb:// is used to direct Spring Cloud Gateway to use the client-side load balancer to look up the destination in the discovery service.
+#predicates: - Path=/product-composite/** is used to specify what requests this route should match. ** matches zero or more elements in the path.
+   
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: product-composite  
+        uri: lb://product-composite
+        predicates:
+          - Path=/product-composite/**
+      - id: product-composite-swagger-ui
+        uri: lb://product-composite
+        predicates:
+          - Path=/openapi/**
+      - id: auth-service
+        uri: lb://auth-service
+        predicates:
+          - Path=/auth-service/**
+      - id: auth-service-swagger-ui
+        uri: lb://auth-service
+        predicates:
+          - Path=/openapi/**
+      - id: aggregation-service
+        uri: lb://aggregation-service
+        predicates:
+          - Path=/aggregation-service/**
+      - id: aggregation-service-swagger-ui
+        uri: lb://aggregation-service
+        predicates:
+          - Path=/openapi/**
+       
+
     
     
