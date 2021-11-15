@@ -24,3 +24,6 @@ id: product-composite: The name of the route is product-composite.
 uri: lb://product-composite: If the route is selected by its predicates, the request will be routed to the service that is named product-composite in the discovery service, Netflix Eureka. The protocol lb:// is used to direct Spring Cloud Gateway to use the client-side load balancer to look up the destination in the discovery service.
 predicates: - Path=/product-composite/** is used to specify what requests this route should match. ** matches zero or more elements in the path.
 </p> 
+
+<h4>Edge service Thoery</h4>
+![alt text](https://github.com/Vengat/edge-service/blob/main/edge-service.png?raw=true)

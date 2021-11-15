@@ -40,6 +40,6 @@ spring:
         predicates:
           - Path=/openapi/**
        
-
+server.forward-headers-strategy: framework
     
     
