@@ -26,4 +26,4 @@ predicates: - Path=/product-composite/** is used to specify what requests this r
 </p> 
 
 <h4>Edge service Thoery</h4>
-![alt text](https://github.com/Vengat/edge-service/blob/main/edge-service.png?raw=true)
+![edge-service](https://github.com/Vengat/edge-service/blob/main/edge-service.png?raw=true)
